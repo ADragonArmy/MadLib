@@ -8,9 +8,11 @@ init()
 #the parmaters on ths funtion String, List Size, Color 
 def get_inputa(Name,Num,Color):
     user_in = input(f"Type {Num} {Name}: ").split(',')[:Num]
-    while len(x) < Num :
+    user_in = [e.strip() for e in user_in]
+    while len(user_in) < Num or '' in user_in:
         print(f"{Fore.RED}NOT ENOUGH {Name.upper()}!!{Style.RESET_ALL}")
         user_in = input(f"Type {Num} {Name}: ").split(',')[:Num]
+        user_in = [e.strip() for e in user_in]
     for i in user_in :
         y = Color + i.strip() + Style.RESET_ALL
         i = y
